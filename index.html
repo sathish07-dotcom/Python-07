@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sets & Dictionaries in python</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Dictionary in python</h1>
+    <h3>In Python, a **dictionary** is an unordered collection of items. Each item is stored as a **key-value pair**, where each key is unique and maps to a specific value. Dictionaries are extremely useful for situations where you want to store data in a way that is easy to look up by a key, similar to how a real-world dictionary stores words (keys) and their definitions (values).
+</h3>
+<div class="div">
+<h2>Key Characteristics of Dictionaries:</h2>
+
+<li><b>Unordered:</b> Dictionaries do not maintain the order of elements until Python 3.7, where insertion order is preserved as an implementation detail. However, you should not rely on the order of items in a dictionary for general usage.</li>
+<li><b>Mutable:</b> Dictionaries are mutable, meaning you can change their contents by adding, removing, or modifying key-value pairs.</li>
+<li><b>Unique keys:</b> Each key in a dictionary must be unique. If you try to insert a duplicate key, the existing value for that key will be updated.</li>
+<li><b>Keys are immutable:</b> Keys must be of a type that is immutable (e.g., strings, numbers, tuples). You cannot use lists or other dictionaries as keys.</li>
+
+
+<h2>Creating a Dictionary:</h2>
+
+<li>Dictionaries are created using curly braces `{}` with **key-value pairs** separated by a colon `:`.
+</li>
+<p>
+# Creating a dictionary <br>
+person = {"name": "Alice", "age": 30, "city": "New York"}
+</p>
+
+<h2>Accessing Values:</h2>
+
+<li>You can access values in a dictionary using their corresponding keys inside square brackets `[]`.
+</li>
+<p>
+# Accessing a value by key <br>
+print(person["name"])  # Output: Alice <br>
+print(person["age"])   # Output: 30 
+</p>
+
+<li>You can also use the `.get()` method, which returns `None` if the key does not exist (without raising an error).
+</li>
+<p>
+# Using get method (returns None if the key doesn't exist) <br>
+print(person.get("name"))  # Output: Alice <br>
+print(person.get("email")) # Output: None (no error)
+</p>
+
+<h2>Modifying Values:</h2>
+
+<li>You can modify the value associated with a key by simply assigning a new value to the key.
+</li>
+<p>
+# Modifying a value <br>
+person["age"] = 31 <br>
+print(person)  # Output: {'name': 'Alice', 'age': 31, 'city': 'New York'}
+</p>
+
+<h2>Adding New Key-Value Pairs:</h2>
+
+<li>To add a new key-value pair, you can assign a value to a new key.
+</li>
+<p>
+# Adding a new key-value pair <br>
+person["email"] = "alice@example.com" <br>
+print(person)  # Output: {'name': 'Alice', 'age': 31, 'city': 'New York', 'email': 'alice@example.com'}
+</p>
+
+<h2>Removing Key-Value Pairs:</h2>
+
+<li>You can remove key-value pairs using several methods:</li>
+
+<li><b>`del` keyword:</b> Removes a key-value pair by key.</li>
+<li><b>`.pop()`:</b> Removes a key-value pair and returns the value.</li>
+<li><b>`.popitem()`:</b> Removes and returns an arbitrary key-value pair (used mainly for Python versions prior to 3.7).</li>
+<li><b>`.clear()`:</b> Removes all key-value pairs from the dictionary.</li>
+
+<p>
+# Removing a key-value pair <br>
+del person["email"] <br>
+print(person)  # Output: {'name': 'Alice', 'age': 31, 'city': 'New York'} <br> <br>
+
+# Using pop method (returns the removed value) <br>
+removed_value = person.pop("city") <br>
+print(removed_value)  # Output: New York <br>
+print(person)  # Output: {'name': 'Alice', 'age': 31} <br>
+</p>
+<h2>Keys, Values, and Items:</h2>
+
+<li>You can access the keys, values, and key-value pairs in a dictionary using the following methods:
+</li>
+<li><b>`.keys()`:</b> Returns a view object that displays all the keys.</li>
+<li><b>`.values()`:</b> Returns a view object that displays all the values.</li>
+<li><b>`.items()`:</b> Returns a view object that displays all key-value pairs as tuples.</li>
+
+<p>
+# Getting the keys, values, and items <br>
+print(person.keys())   # Output: dict_keys(['name', 'age']) <br>
+print(person.values()) # Output: dict_values(['Alice', 31]) <br>
+print(person.items())  # Output: dict_items([('name', 'Alice'), ('age', 31)]) <br>
+</p>
+
+<h2>Looping Through a Dictionary:</h2>
+
+<li>You can loop through the keys, values, or both using a `for` loop.
+</li>
+<p>
+# Looping through keys and values <br>
+for key, value in person.items(): <br>
+    print(key, ":", value) <br> <br>
+Output: <br>
+name : Alice <br>
+age : 31
+</p>
+### **Nested Dictionaries:**
+
+Dictionaries can contain other dictionaries as values, creating a **nested dictionary**.
+
+#### Example:
+```python
+# Nested dictionary
+students = {
+    "Alice": {"age": 21, "major": "Physics"},
+    "Bob": {"age": 22, "major": "Mathematics"}
+}
+
+# Accessing nested dictionary values
+print(students["Alice"]["major"])  # Output: Physics
+```
+
+### **Dictionary Comprehension:**
+
+Just like list comprehensions, you can create dictionaries using dictionary comprehension.
+
+#### Example:
+```python
+# Creating a dictionary using dictionary comprehension
+squared_numbers = {x: x**2 for x in range(5)}
+print(squared_numbers)  # Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+```
+
+---
+
+### **Summary:**
+
+- **Dictionaries** store data as **key-value pairs**.
+- **Keys** must be unique and immutable (e.g., strings, numbers, tuples).
+- **Values** can be of any data type.
+- Dictionaries are **mutable**: you can add, modify, and remove key-value pairs.
+- You can use methods like `.get()`, `.keys()`, `.values()`, `.items()` to access data in a dictionary.
+- Dictionaries are particularly useful for fast lookups based on keys.
+
+### **Use Cases for Dictionaries:**
+- Storing and managing data that can be accessed via unique keys (e.g., user profiles, settings configurations, etc.).
+- Storing data where values are more complex (e.g., nested dictionaries).
+
+Dictionaries are a powerful and flexible data structure that makes managing data more intuitive in Python!
+
+
+
+In Python, a **set** is an unordered collection of **unique** elements. Sets are similar to lists or dictionaries but differ in that they do not allow duplicate elements and do not maintain any order of elements.
+
+### **Key Characteristics of Sets:**
+
+- **Unordered**: The elements in a set are not stored in any particular order. This means the order in which you add items to a set is not necessarily the order in which they are stored.
+- **Unique elements**: A set automatically removes duplicate elements. If you try to add the same element multiple times, it will only appear once.
+- **Mutable**: Sets are mutable, meaning you can add and remove elements after they have been created.
+- **No indexing**: You cannot access elements in a set by index (since they are unordered).
+- **Set operations**: Sets support a variety of operations like union, intersection, difference, and subset checks, making them useful for tasks such as comparing collections of data.
+
+### **Creating a Set:**
+
+Sets are created using curly braces `{}` or the `set()` function. When using the `set()` function, you can create a set from other iterable objects like lists or tuples.
+
+#### Examples:
+```python
+# Creating a set using curly braces
+my_set = {1, 2, 3, 4, 5}
+
+# Creating a set using the set() function
+another_set = set([3, 4, 5, 6, 7])
+print(my_set)         # Output: {1, 2, 3, 4, 5}
+print(another_set)    # Output: {3, 4, 5, 6, 7}
+```
+
+### **Accessing Elements in a Set:**
+
+Since sets are unordered, you cannot access their elements by index. However, you can loop through a set or check if an element exists in the set using the `in` keyword.
+
+#### Example:
+```python
+# Looping through a set
+for item in my_set:
+    print(item)
+    
+# Checking if an element exists in the set
+print(3 in my_set)   # Output: True
+print(6 in my_set)   # Output: False
+```
+
+### **Adding and Removing Elements:**
+
+- **Adding elements**: You can add elements to a set using the `.add()` method. To add multiple elements, you can use the `.update()` method.
+- **Removing elements**: You can remove elements using `.remove()` (raises an error if the element doesn't exist) or `.discard()` (doesn't raise an error). The `.pop()` method removes and returns an arbitrary element.
+
+#### Example:
+```python
+# Adding elements to a set
+my_set.add(6)
+print(my_set)  # Output: {1, 2, 3, 4, 5, 6}
+
+# Adding multiple elements
+my_set.update([7, 8, 9])
+print(my_set)  # Output: {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+# Removing an element
+my_set.remove(2)
+print(my_set)  # Output: {1, 3, 4, 5, 6, 7, 8, 9}
+
+# Using discard (no error if element is not found)
+my_set.discard(10)  # No error even though 10 is not in the set
+
+# Popping an element (removes and returns an arbitrary element)
+removed_element = my_set.pop()
+print(removed_element)  # Output: (arbitrary element from the set)
+print(my_set)  # Set after element removal
+```
+
+### **Set Operations:**
+
+Sets support a variety of operations that are very useful for mathematical and logical set operations:
+
+1. **Union** (`|` or `.union()`): Combines elements from two sets.
+2. **Intersection** (`&` or `.intersection()`): Returns elements that are common to both sets.
+3. **Difference** (`-` or `.difference()`): Returns elements that are in the first set but not in the second set.
+4. **Symmetric Difference** (`^` or `.symmetric_difference()`): Returns elements that are in either set, but not in both.
+5. **Subset** (`<=` or `.issubset()`): Checks if all elements of one set are in another.
+6. **Superset** (`>=` or `.issuperset()`): Checks if one set contains all elements of another.
+
+#### Examples:
+
+```python
+# Union
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+union_set = set1 | set2
+print(union_set)  # Output: {1, 2, 3, 4, 5}
+
+# Intersection
+intersection_set = set1 & set2
+print(intersection_set)  # Output: {3}
+
+# Difference
+difference_set = set1 - set2
+print(difference_set)  # Output: {1, 2}
+
+# Symmetric Difference
+sym_diff_set = set1 ^ set2
+print(sym_diff_set)  # Output: {1, 2, 4, 5}
+
+# Subset
+set3 = {1, 2}
+print(set3 <= set1)  # Output: True (set3 is a subset of set1)
+
+# Superset
+print(set1 >= set3)  # Output: True (set1 is a superset of set3)
+```
+
+### **Set Comprehension:**
+
+Like list comprehension, you can use set comprehension to create sets in a concise and readable way.
+
+#### Example:
+```python
+# Set comprehension to create a set of squares
+squares = {x**2 for x in range(5)}
+print(squares)  # Output: {0, 1, 4, 9, 16}
+```
+
+### **Immutable Sets (frozenset):**
+
+In addition to the regular mutable set, Python also has an immutable version called **`frozenset`**. A `frozenset` is similar to a set but cannot be modified after creation (no adding, removing, or updating elements).
+
+#### Example:
+```python
+# Creating a frozenset
+frozen_set = frozenset([1, 2, 3, 4])
+print(frozen_set)  # Output: frozenset({1, 2, 3, 4})
+
+# Attempting to add an element to frozenset will result in an error
+# frozen_set.add(5)  # This will raise an AttributeError
+```
+
+---
+
+### **Summary:**
+
+- **Sets** are unordered collections of unique elements.
+- **Mutable**: You can add and remove elements.
+- **Support for mathematical operations**: Union, intersection, difference, etc.
+- **Useful for checking membership** and removing duplicates from collections.
+- **frozenset**: An immutable version of a set.
+</
+Sets are very useful when you need to quickly check membership or perform mathematical set operations, and they are also efficient for ensuring that a collection contains only unique elements.
+</body>
+</html>
