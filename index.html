@@ -112,195 +112,155 @@ Output: <br>
 name : Alice <br>
 age : 31
 </p>
-### **Nested Dictionaries:**
+<h2>Nested Dictionaries:</h2>
 
-Dictionaries can contain other dictionaries as values, creating a **nested dictionary**.
+<li>Dictionaries can contain other dictionaries as values, creating a **nested dictionary**.
+</li>
+<p>
+# Nested dictionary <br>
+students = { <br>
+    "Alice": {"age": 21, "major": "Physics"}, <br>
+    "Bob": {"age": 22, "major": "Mathematics"} <br>
+} <br> <br>
 
-#### Example:
-```python
-# Nested dictionary
-students = {
-    "Alice": {"age": 21, "major": "Physics"},
-    "Bob": {"age": 22, "major": "Mathematics"}
-}
-
-# Accessing nested dictionary values
+# Accessing nested dictionary values <br>
 print(students["Alice"]["major"])  # Output: Physics
-```
+</p>
+<h2>Dictionary Comprehension:</h2>
 
-### **Dictionary Comprehension:**
-
-Just like list comprehensions, you can create dictionaries using dictionary comprehension.
-
-#### Example:
-```python
+<li>Just like list comprehensions, you can create dictionaries using dictionary comprehension.
+</li>
+<p>
 # Creating a dictionary using dictionary comprehension
 squared_numbers = {x: x**2 for x in range(5)}
 print(squared_numbers)  # Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
-```
-
----
-
-### **Summary:**
-
-- **Dictionaries** store data as **key-value pairs**.
-- **Keys** must be unique and immutable (e.g., strings, numbers, tuples).
-- **Values** can be of any data type.
-- Dictionaries are **mutable**: you can add, modify, and remove key-value pairs.
-- You can use methods like `.get()`, `.keys()`, `.values()`, `.items()` to access data in a dictionary.
-- Dictionaries are particularly useful for fast lookups based on keys.
-
-### **Use Cases for Dictionaries:**
-- Storing and managing data that can be accessed via unique keys (e.g., user profiles, settings configurations, etc.).
-- Storing data where values are more complex (e.g., nested dictionaries).
-
-Dictionaries are a powerful and flexible data structure that makes managing data more intuitive in Python!
+</p>
 
 
+</div>
+<div class="div1">
+    <h1>set</h1>
+<h3>In Python, a **set** is an unordered collection of **unique** elements. Sets are similar to lists or dictionaries but differ in that they do not allow duplicate elements and do not maintain any order of elements.
+</h3>
+<h2>Key Characteristics of Sets:</h2>
 
-In Python, a **set** is an unordered collection of **unique** elements. Sets are similar to lists or dictionaries but differ in that they do not allow duplicate elements and do not maintain any order of elements.
+<li>*Unordered: The elements in a set are not stored in any particular order. This means the order in which you add items to a set is not necessarily the order in which they are stored.</li>
+<li>*Unique elements: A set automatically removes duplicate elements. If you try to add the same element multiple times, it will only appear once.</li>
+<li>*Mutable: Sets are mutable, meaning you can add and remove elements after they have been created.</li>
+<li>*No indexing: You cannot access elements in a set by index (since they are unordered).</li>
+<li>*Set operations: Sets support a variety of operations like union, intersection, difference, and subset checks, making them useful for tasks such as comparing collections of data.</li>
+<h2>Creating a Set:</h2>
 
-### **Key Characteristics of Sets:**
+<li>Sets are created using curly braces `{}` or the `set()` function. When using the `set()` function, you can create a set from other iterable objects like lists or tuples.
+</li>
+<p>
+# Creating a set using curly braces <br>
+my_set = {1, 2, 3, 4, 5} <br> <br>
 
-- **Unordered**: The elements in a set are not stored in any particular order. This means the order in which you add items to a set is not necessarily the order in which they are stored.
-- **Unique elements**: A set automatically removes duplicate elements. If you try to add the same element multiple times, it will only appear once.
-- **Mutable**: Sets are mutable, meaning you can add and remove elements after they have been created.
-- **No indexing**: You cannot access elements in a set by index (since they are unordered).
-- **Set operations**: Sets support a variety of operations like union, intersection, difference, and subset checks, making them useful for tasks such as comparing collections of data.
+# Creating a set using the set() function <br>
+another_set = set([3, 4, 5, 6, 7]) <br>
+print(my_set)         # Output: {1, 2, 3, 4, 5} <br>
+print(another_set)    # Output: 3, 4, 5, 6, 7<br>
+</p>
 
-### **Creating a Set:**
+<h2>Accessing Elements in a Set:</h2>
 
-Sets are created using curly braces `{}` or the `set()` function. When using the `set()` function, you can create a set from other iterable objects like lists or tuples.
-
-#### Examples:
-```python
-# Creating a set using curly braces
-my_set = {1, 2, 3, 4, 5}
-
-# Creating a set using the set() function
-another_set = set([3, 4, 5, 6, 7])
-print(my_set)         # Output: {1, 2, 3, 4, 5}
-print(another_set)    # Output: {3, 4, 5, 6, 7}
-```
-
-### **Accessing Elements in a Set:**
-
-Since sets are unordered, you cannot access their elements by index. However, you can loop through a set or check if an element exists in the set using the `in` keyword.
-
-#### Example:
-```python
-# Looping through a set
-for item in my_set:
-    print(item)
+<li>Since sets are unordered, you cannot access their elements by index. However, you can loop through a set or check if an element exists in the set using the `in` keyword.
+</li>
+<p>
+# Looping through a set <br>
+for item in my_set: <br>
+    print(item) <br> <br>
     
-# Checking if an element exists in the set
-print(3 in my_set)   # Output: True
-print(6 in my_set)   # Output: False
-```
+# Checking if an element exists in the set <br>
+print(3 in my_set)   # Output: True <br>
+print(6 in my_set)   # Output: False <br>
+</p>
 
-### **Adding and Removing Elements:**
+<h2>Adding and Removing Elements:</h2>
 
-- **Adding elements**: You can add elements to a set using the `.add()` method. To add multiple elements, you can use the `.update()` method.
-- **Removing elements**: You can remove elements using `.remove()` (raises an error if the element doesn't exist) or `.discard()` (doesn't raise an error). The `.pop()` method removes and returns an arbitrary element.
+<li>Adding elements: You can add elements to a set using the `.add()` method. To add multiple elements, you can use the `.update()` method.</li>
+<li>Removing elements: You can remove elements using `.remove()` (raises an error if the element doesn't exist) or `.discard()` (doesn't raise an error). The `.pop()` method removes and returns an arbitrary element.</li>
 
-#### Example:
-```python
-# Adding elements to a set
-my_set.add(6)
-print(my_set)  # Output: {1, 2, 3, 4, 5, 6}
+<p>
+# Adding elements to a set <br>
+my_set.add(6) <br>
+print(my_set)  # Output: {1, 2, 3, 4, 5, 6}<br><br>
 
-# Adding multiple elements
-my_set.update([7, 8, 9])
-print(my_set)  # Output: {1, 2, 3, 4, 5, 6, 7, 8, 9}
+# Adding multiple elements<br>
+my_set.update([7, 8, 9])<br>
+print(my_set)  # Output: {1, 2, 3, 4, 5, 6, 7, 8, 9}<br><br>
 
-# Removing an element
-my_set.remove(2)
-print(my_set)  # Output: {1, 3, 4, 5, 6, 7, 8, 9}
+# Removing an element<br>
+my_set.remove(2)<br>
+print(my_set)  # Output: {1, 3, 4, 5, 6, 7, 8, 9}<br><br>
 
-# Using discard (no error if element is not found)
-my_set.discard(10)  # No error even though 10 is not in the set
+# Using discard (no error if element is not found)<br>
+my_set.discard(10)  # No error even though 10 is not in the set<br><br>
 
-# Popping an element (removes and returns an arbitrary element)
-removed_element = my_set.pop()
-print(removed_element)  # Output: (arbitrary element from the set)
-print(my_set)  # Set after element removal
-```
+# Popping an element (removes and returns an arbitrary element)<br>
+removed_element = my_set.pop()<br>
+print(removed_element)  # Output: (arbitrary element from the set)<br>
+print(my_set)  # Set after element removal<br>
+</p>
+<h2>Set Operations:</h2>
 
-### **Set Operations:**
+<li>Sets support a variety of operations that are very useful for mathematical and logical set operations:
+</li>
+<li>Union** (`|` or `.union()`): Combines elements from two sets.</li>
+<li>Intersection** (`&` or `.intersection()`): Returns elements that are common to both sets.</li>
+<li>Difference** (`-` or `.difference()`): Returns elements that are in the first set but not in the second set.</li>
+<li>Symmetric Difference** (`^` or `.symmetric_difference()`): Returns elements that are in either set, but not in both.</li>
+<li>Subset** (`<=` or `.issubset()`): Checks if all elements of one set are in another</li>
+<li>Superset** (`>=` or `.issuperset()`): Checks if one set contains all elements of another.</li>
 
-Sets support a variety of operations that are very useful for mathematical and logical set operations:
+<p>
+# Union <br>
+set1 = {1, 2, 3}<br>
+set2 = {3, 4, 5}<br>
+union_set = set1 | set2 <br>
+print(union_set)  # Output: {1, 2, 3, 4, 5}<br><br>
 
-1. **Union** (`|` or `.union()`): Combines elements from two sets.
-2. **Intersection** (`&` or `.intersection()`): Returns elements that are common to both sets.
-3. **Difference** (`-` or `.difference()`): Returns elements that are in the first set but not in the second set.
-4. **Symmetric Difference** (`^` or `.symmetric_difference()`): Returns elements that are in either set, but not in both.
-5. **Subset** (`<=` or `.issubset()`): Checks if all elements of one set are in another.
-6. **Superset** (`>=` or `.issuperset()`): Checks if one set contains all elements of another.
+# Intersection<br>
+intersection_set = set1 & set2<br>
+print(intersection_set)  # Output: {3}<br><br>
 
-#### Examples:
+# Difference<br>
+difference_set = set1 - set2<br>
+print(difference_set)  # Output: {1, 2}<br><br>
 
-```python
-# Union
-set1 = {1, 2, 3}
-set2 = {3, 4, 5}
-union_set = set1 | set2
-print(union_set)  # Output: {1, 2, 3, 4, 5}
+# Symmetric Difference<br>
+sym_diff_set = set1 ^ set2<br>
+print(sym_diff_set)  # Output: {1, 2, 4, 5}<br><br>
 
-# Intersection
-intersection_set = set1 & set2
-print(intersection_set)  # Output: {3}
+# Subset<br>
+set3 = {1, 2}<br>
+print(set3 <= set1)  # Output: True (set3 is a subset of set1)<br><br>
 
-# Difference
-difference_set = set1 - set2
-print(difference_set)  # Output: {1, 2}
-
-# Symmetric Difference
-sym_diff_set = set1 ^ set2
-print(sym_diff_set)  # Output: {1, 2, 4, 5}
-
-# Subset
-set3 = {1, 2}
-print(set3 <= set1)  # Output: True (set3 is a subset of set1)
-
-# Superset
+# Superset<br>
 print(set1 >= set3)  # Output: True (set1 is a superset of set3)
-```
+</p>
+<h2>Set Comprehension:</h2>
 
-### **Set Comprehension:**
-
-Like list comprehension, you can use set comprehension to create sets in a concise and readable way.
-
-#### Example:
-```python
+<li>Like list comprehension, you can use set comprehension to create sets in a concise and readable way.
+</li>
+<p>
 # Set comprehension to create a set of squares
 squares = {x**2 for x in range(5)}
 print(squares)  # Output: {0, 1, 4, 9, 16}
-```
+</p>
+<h2>Immutable Sets (frozenset):</h2>
 
-### **Immutable Sets (frozenset):**
+<li>In addition to the regular mutable set, Python also has an immutable version called **`frozenset`**. A `frozenset` is similar to a set but cannot be modified after creation (no adding, removing, or updating elements).
+</li>
+<p>
+# Creating a frozenset <br>
+frozen_set = frozenset([1, 2, 3, 4]) <br>
+print(frozen_set)  # Output: frozenset({1, 2, 3, 4}) <br> <br>
 
-In addition to the regular mutable set, Python also has an immutable version called **`frozenset`**. A `frozenset` is similar to a set but cannot be modified after creation (no adding, removing, or updating elements).
-
-#### Example:
-```python
-# Creating a frozenset
-frozen_set = frozenset([1, 2, 3, 4])
-print(frozen_set)  # Output: frozenset({1, 2, 3, 4})
-
-# Attempting to add an element to frozenset will result in an error
+# Attempting to add an element to frozenset will result in an error <br>
 # frozen_set.add(5)  # This will raise an AttributeError
-```
-
----
-
-### **Summary:**
-
-- **Sets** are unordered collections of unique elements.
-- **Mutable**: You can add and remove elements.
-- **Support for mathematical operations**: Union, intersection, difference, etc.
-- **Useful for checking membership** and removing duplicates from collections.
-- **frozenset**: An immutable version of a set.
-</
-Sets are very useful when you need to quickly check membership or perform mathematical set operations, and they are also efficient for ensuring that a collection contains only unique elements.
+</p>
+</div>
 </body>
 </html>

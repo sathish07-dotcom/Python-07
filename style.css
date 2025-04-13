@@ -19,11 +19,14 @@ body{
     li{
     color: brown;
     }
-    .div{
+    .div,.div1{
     border: 2px green solid;
-    height: 145vh;
+
     margin-bottom: 20px;
     padding: 20px;
+    }
+    .div{
+        height: 250vh;
     }
     p{
     color: green;
